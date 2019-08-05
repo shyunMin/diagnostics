@@ -306,7 +306,7 @@ if [[ "$__BuildArch" == "armel" ]]; then
 fi
 
 # Configure environment if we are doing a cross compile.
-if [ "${__BuildArch}" != "${__HostArch}" ]; then
+if [ "$__CrossBuild" == true ]; then
     __CrossBuild=true
     export CROSSCOMPILE=1
     if ! [[ -n "$ROOTFS_DIR" ]]; then

@@ -1,0 +1,2 @@
+# This package should install an ELF binary in the /usr/share hierarchy.
+addFilter("E: arch-dependent-file-in-usr-share")
