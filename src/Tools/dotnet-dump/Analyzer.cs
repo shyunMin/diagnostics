@@ -85,7 +85,7 @@ namespace Microsoft.Diagnostics.Tools.Dump
                     // Automatically enable symbol server support
                     SymbolReader.InitializeSymbolStore(
                         logging: false, 
-                        msdl: true,
+                        msdl: false,
                         symweb: false,
                         tempDirectory: null,
                         symbolServerPath: null,
