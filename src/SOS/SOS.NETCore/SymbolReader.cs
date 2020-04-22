@@ -1183,9 +1183,19 @@ namespace SOS
             {
                 symbolDirectoryPath = Path.GetFullPath(symbolDirectoryPath);
 
-                if (!IsDuplicateSymbolStore<DirectorySymbolStore>(store, (directorySymbolStore) => IsPathEqual(symbolDirectoryPath, directorySymbolStore.Directory)))
+                var probingPaths = new List<string> { symbolDirectoryPath };
+                if (Directory.Exists(symbolDirectoryPath))
                 {
-                    store = new DirectorySymbolStore(s_tracer, store, symbolDirectoryPath);
+                    // Add all subdirectories.
+                    probingPaths.AddRange(Directory.GetDirectories(symbolDirectoryPath, "*", SearchOption.AllDirectories));
+                }
+                // Make sure the root directory is enumerated last so that it comes first in the fallback tree.
+                foreach (var path in Enumerable.Reverse(probingPaths))
+                {
+                    if (!IsDuplicateSymbolStore<DirectorySymbolStore>(store, (directorySymbolStore) => IsPathEqual(path, directorySymbolStore.Directory)))
+                    {
+                        store = new DirectorySymbolStore(s_tracer, store, path);
+                    }
                 }
             }
 
