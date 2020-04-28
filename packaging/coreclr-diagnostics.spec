@@ -64,14 +64,23 @@ Requires: libunwind
 Requires: libuuid
 
 %description
-This package contains components for basic .NET debugging and diagnostic support.
+This package contains SOS and the SOS plugin for lldb.
 
 %package tools
-Summary:  Diagnostic tools
-Requires: coreclr-diagnostics
+Summary: Diagnostic tools
 
 %description tools
-This package contains a collection of .NET diagnostic tools.
+This package contains various CLI tools for runtime diagnostics.
+
+%ifarch x86_64
+%package test
+Summary: Unit tests
+BuildArch: noarch
+AutoReqProv: no
+
+%description test
+This package contains unit tests for SOS and tools.
+%endif
 
 %prep
 %setup -q -n %{name}-%{version}
@@ -148,6 +157,7 @@ export LD_LIBRARY_PATH=%{_builddir}/%{name}-%{version}/libicu-57.1
 %install
 %define netcoreappdir   %{_datadir}/dotnet/shared/Microsoft.NETCore.App/%{dotnet_version}
 %define toolsdir        /home/owner/share/.dotnet/tools
+%define tcdir           /opt/usr/diagnostics-tc
 
 %ifarch x86_64
 %define rid linux-x64
@@ -182,10 +192,19 @@ for name in counters dump gcdump trace; do
 done
 find %{buildroot}%{toolsdir} -type f -exec chmod 644 {} +
 
-%ifnarch %{ix86}
+%ifarch %{arm}
 for f in $(grep -L "dotnet-" %{buildroot}%{toolsdir}/*.dll); do
   %{_datarootdir}/dotnet.tizen/netcoreapp/crossgen /ReadyToRun /p %{_datarootdir}/dotnet.tizen/netcoreapp:`dirname $f` $f
 done
+%endif
+
+# Tests
+%ifarch x86_64
+mkdir -p %{buildroot}%{tcdir}
+for module in %{_artifacts}/{*.UnitTests,Tracee}; do
+  cp -rf ${module}/%{_buildtype}/netcoreapp*/publish %{buildroot}%{tcdir}/`basename ${module}`
+done
+cp -rf packages/xunit.runner.console/*/tools/netcoreapp2.0 %{buildroot}%{tcdir}/xunit.runner.console
 %endif
 
 %files
@@ -199,3 +218,10 @@ done
 
 %post tools
 chown -R owner:users /home/owner/share/.dotnet
+
+%ifarch x86_64
+%files test
+%manifest %{name}.manifest
+%dir %{tcdir}
+%{tcdir}/*
+%endif
