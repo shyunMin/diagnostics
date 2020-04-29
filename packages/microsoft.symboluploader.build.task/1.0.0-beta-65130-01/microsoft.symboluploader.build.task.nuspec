@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.SymbolUploader.Build.Task</id>
+    <version>1.0.0-beta-65130-01</version>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>http://go.microsoft.com/fwlink/?LinkId=529443</licenseUrl>
+    <projectUrl>https://devdiv.visualstudio.com/DefaultCollection/DevDiv/_git/DotNet-SymUploader</projectUrl>
+    <iconUrl>http://go.microsoft.com/fwlink/?LinkID=288859</iconUrl>
+    <description>Symbol uploader build task</description>
+    <releaseNotes>Symbol uploader build task</releaseNotes>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <serviceable>true</serviceable>
+    <repository type="git" url="https://devdiv.visualstudio.com/DefaultCollection/DevDiv/_git/DotNet-SymUploader" commit="f0f52e7fe3dec8bcbbb92022b02f0bcd8d31432b" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.5" />
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="System.Runtime.Loader" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

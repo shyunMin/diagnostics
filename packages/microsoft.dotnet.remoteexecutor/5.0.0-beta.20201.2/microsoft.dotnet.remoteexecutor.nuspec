@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.DotNet.RemoteExecutor</id>
+    <version>5.0.0-beta.20201.2</version>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>Icon.png</icon>
+    <projectUrl>https://github.com/dotnet/arcade</projectUrl>
+    <description>This package provides support for running tests out-of-process.</description>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <serviceable>true</serviceable>
+    <repository type="git" url="https://github.com/dotnet/arcade" commit="bce0a98620c1c5a110b2bba9912f3d5929069c6b" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.7.2">
+        <dependency id="Microsoft.Diagnostics.Runtime" version="1.0.5" exclude="Build,Analyzers" />
+        <dependency id="xunit.assert" version="2.4.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETCoreApp2.1">
+        <dependency id="Microsoft.Diagnostics.Runtime" version="1.0.5" exclude="Build,Analyzers" />
+        <dependency id="xunit.assert" version="2.4.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Microsoft.Diagnostics.Runtime" version="1.0.5" exclude="Build,Analyzers" />
+        <dependency id="xunit.assert" version="2.4.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

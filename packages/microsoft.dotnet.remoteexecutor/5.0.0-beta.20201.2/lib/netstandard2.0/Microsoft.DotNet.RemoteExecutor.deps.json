@@ -1,0 +1,144 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.0/",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.0": {},
+    ".NETStandard,Version=v2.0/": {
+      "Microsoft.DotNet.RemoteExecutor/5.0.0-beta.20201.2": {
+        "dependencies": {
+          "Microsoft.DiaSymReader.Pdb2Pdb": "1.1.0-beta2-19575-01",
+          "Microsoft.Diagnostics.Runtime": "1.0.5",
+          "Microsoft.NETFramework.ReferenceAssemblies": "1.0.0-preview.2",
+          "Microsoft.SourceLink.AzureRepos.Git": "1.0.0-beta2-19554-01",
+          "Microsoft.SourceLink.GitHub": "1.0.0-beta2-19554-01",
+          "NETStandard.Library": "2.0.3",
+          "xunit.assert": "2.4.1"
+        },
+        "runtime": {
+          "Microsoft.DotNet.RemoteExecutor.dll": {}
+        }
+      },
+      "Microsoft.Build.Tasks.Git/1.0.0-beta2-19554-01": {},
+      "Microsoft.Diagnostics.Runtime/1.0.5": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Diagnostics.Runtime.dll": {
+            "assemblyVersion": "1.0.5.0",
+            "fileVersion": "1.0.19.16903"
+          }
+        }
+      },
+      "Microsoft.DiaSymReader.Pdb2Pdb/1.1.0-beta2-19575-01": {},
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "Microsoft.NETFramework.ReferenceAssemblies/1.0.0-preview.2": {},
+      "Microsoft.SourceLink.AzureRepos.Git/1.0.0-beta2-19554-01": {
+        "dependencies": {
+          "Microsoft.Build.Tasks.Git": "1.0.0-beta2-19554-01",
+          "Microsoft.SourceLink.Common": "1.0.0-beta2-19554-01"
+        }
+      },
+      "Microsoft.SourceLink.Common/1.0.0-beta2-19554-01": {},
+      "Microsoft.SourceLink.GitHub/1.0.0-beta2-19554-01": {
+        "dependencies": {
+          "Microsoft.Build.Tasks.Git": "1.0.0-beta2-19554-01",
+          "Microsoft.SourceLink.Common": "1.0.0-beta2-19554-01"
+        }
+      },
+      "NETStandard.Library/2.0.3": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "xunit.assert/2.4.1": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.1/xunit.assert.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Microsoft.DotNet.RemoteExecutor/5.0.0-beta.20201.2": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Build.Tasks.Git/1.0.0-beta2-19554-01": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-v263i3YSvtCGfm0LiOHOUCSZlMNvwP7S1Wo2bQN3T/7jHqqttjnCKHDoJDUu2iyfL8A9FrPRhTyhxOXe2m8PYQ==",
+      "path": "microsoft.build.tasks.git/1.0.0-beta2-19554-01",
+      "hashPath": "microsoft.build.tasks.git.1.0.0-beta2-19554-01.nupkg.sha512"
+    },
+    "Microsoft.Diagnostics.Runtime/1.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gqvgDaiveNEOvHptLcx4yyC+OHmK3WzWqw2NI/mfARe/ZohGvI5XlYx7fHxuiG6r541pBkpKebtRUBRhTRRX3g==",
+      "path": "microsoft.diagnostics.runtime/1.0.5",
+      "hashPath": "microsoft.diagnostics.runtime.1.0.5.nupkg.sha512"
+    },
+    "Microsoft.DiaSymReader.Pdb2Pdb/1.1.0-beta2-19575-01": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kY6eTNkeWLHvfOjg97Q7tgQKrPpX+Y3fR6fS4nyfpgFLHBxHriLBR4v3e9t71it91gIMEeKUqOqrFJ7Pj48eHA==",
+      "path": "microsoft.diasymreader.pdb2pdb/1.1.0-beta2-19575-01",
+      "hashPath": "microsoft.diasymreader.pdb2pdb.1.1.0-beta2-19575-01.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.NETFramework.ReferenceAssemblies/1.0.0-preview.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-m+pJPEO7HyXvrOna5Sr3s77ewXonjYWJTNL6drh8xACnMNxnlqUDKx9HfGeSE9wmfY0lQwppaeZpFTPGaH7kZg==",
+      "path": "microsoft.netframework.referenceassemblies/1.0.0-preview.2",
+      "hashPath": "microsoft.netframework.referenceassemblies.1.0.0-preview.2.nupkg.sha512"
+    },
+    "Microsoft.SourceLink.AzureRepos.Git/1.0.0-beta2-19554-01": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MF8bt/BJhDrt9PmZ5FEWDtW8g5Oxhbx2LxKV8jtr7VPviK1E5ikChYHkvHnbPhInwduNxrkUqXwqM6pQsbNREw==",
+      "path": "microsoft.sourcelink.azurerepos.git/1.0.0-beta2-19554-01",
+      "hashPath": "microsoft.sourcelink.azurerepos.git.1.0.0-beta2-19554-01.nupkg.sha512"
+    },
+    "Microsoft.SourceLink.Common/1.0.0-beta2-19554-01": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3UPzCA83snmVmWdrTfE9WctN7zSB+jPf5OVatYCjD4bpjOO4rLVkpTLrDKbXJsmk/uHC24YFX1XRw24u9DgTTA==",
+      "path": "microsoft.sourcelink.common/1.0.0-beta2-19554-01",
+      "hashPath": "microsoft.sourcelink.common.1.0.0-beta2-19554-01.nupkg.sha512"
+    },
+    "Microsoft.SourceLink.GitHub/1.0.0-beta2-19554-01": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Xb6QINuKuOR4mWOpr7l/jocY/nk3Q88lZ3uYTQhzZvhVDEJ63dDJtVP2SFLXKvwzm1fHTQloDqSbn+0tj+x9jw==",
+      "path": "microsoft.sourcelink.github/1.0.0-beta2-19554-01",
+      "hashPath": "microsoft.sourcelink.github.1.0.0-beta2-19554-01.nupkg.sha512"
+    },
+    "NETStandard.Library/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "xunit.assert/2.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-O/Oe0BS5RmSsM+LQOb041TzuPo5MdH2Rov+qXGS37X+KFG1Hxz7kopYklM5+1Y+tRGeXrOx5+Xne1RuqLFQoyQ==",
+      "path": "xunit.assert/2.4.1",
+      "hashPath": "xunit.assert.2.4.1.nupkg.sha512"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <_PublishSymbolsTaskDir>$(MSBuildThisFileDirectory)net45/</_PublishSymbolsTaskDir>
+    <_PublishSymbolsTaskDir Condition="'$(MSBuildRuntimeType)' == 'Core'">$(MSBuildThisFileDirectory)netstandard2.0/</_PublishSymbolsTaskDir>
+  </PropertyGroup>
+
+  <UsingTask TaskName="PublishSymbols" AssemblyFile="$(_PublishSymbolsTaskDir)Microsoft.SymbolUploader.Build.Task.dll"/>
+  
+    <!-- Publish symbols task
+
+        SymbolPackagesToPublish - Symbol packages to publish
+        SymbolFilesToPublish - Symbol files to publish
+        SymbolServerPAT - PersonalAccessToken for symbol server
+        SymbolServerPath - Optional symbol server URL. Defaults to https://microsoft.artifacts.visualstudio.com/DefaultCollection
+        SymbolExpirationInDays - Number days until the request expires. Cannot be used with SymbolExpirationDate (Optional). 
+        SymbolExpirationDate - Expiration date in UTC. Cannot be used with SymbolExpirationInDays (Optional). 
+        SymbolVerboseLogging - Enabled more verbose logging as if "detailed" logging was enabled by msbuild.
+        SymbolDryRun - If true, cracks the nuget files and does the PDB conversion (if ConvertPortablePdbsToWindowsPdbs is true) without actually uploading anything.
+        ConvertPortablePdbsToWindowsPdbs - If true, convert portable pdbs to windows pdbs and upload.
+        PublishSpecialClrFiles - If true, the special coreclr module indexed files like DBI, DAC and SOS are published
+        PdbConversionTreatAsWarning - Comma separated list of PDB conversion errors to treat as warnings.
+        
+        The default expiration (if neither is specified) is 30 days.
+         
+        PublishSymbolsDependsOn can be customized at build time on the commandline to determine the pre steps required to publish 
+    -->
+
+    <Target Name="PublishSymbols" DependsOnTargets="@(PublishSymbolsDependsOn)" Condition="'@(SymbolPackagesToPublish)' != '' or '@(SymbolFilesToPublish)' != ''">
+      <PublishSymbols PackagesToPublish="@(SymbolPackagesToPublish)" 
+                      FilesToPublish="@(SymbolFilesToPublish)" 
+                      PersonalAccessToken="$(SymbolServerPAT)"
+                      SymbolServerPath="$(SymbolServerPath)"
+                      ExpirationInDays="$(SymbolExpirationInDays)"
+                      ExpirationDate="$(SymbolExpirationDate)" 
+                      VerboseLogging="$(SymbolVerboseLogging)"
+                      DryRun="$(SymbolDryRun)"
+                      ConvertPortablePdbsToWindowsPdbs="$(ConvertPortablePdbsToWindowsPdbs)"
+                      PublishSpecialClrFiles="$(PublishSpecialClrFiles)"
+                      PdbConversionTreatAsWarning="$(PdbConversionTreatAsWarning)" />
+    </Target>
+</Project>
