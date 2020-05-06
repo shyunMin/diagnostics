@@ -166,7 +166,7 @@ namespace EventPipe.UnitTests.GCEventsValidation
             }, output);
         }
 
-        [Fact]
+        [Fact(Skip = "System.OutOfMemoryException is thrown on Tizen devices.")]
         public async void GCCollect_ProducesVerboseEvents()
         {
             await RemoteTestExecutorHelper.RunTestCaseAsync(() => 

@@ -13,7 +13,7 @@ namespace Microsoft.Diagnostics.NETCore.Client
             (RuntimeInformation.ProcessArchitecture == Architecture.X86 ? 
                 "..\\..\\..\\..\\..\\.dotnet\\x86\\dotnet.exe" : 
                 "..\\..\\..\\..\\..\\.dotnet\\dotnet.exe") : 
-            "../../../../../.dotnet/dotnet";
+            "/usr/bin/dotnet";
         
         public static string GetTraceePath()
         {
