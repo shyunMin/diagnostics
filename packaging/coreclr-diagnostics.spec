@@ -190,7 +190,6 @@ cp %{_artifacts}/Linux.%{_barch}.%{_buildtype}/*.so %{buildroot}%{toolsdir}/%{ri
 for name in counters dump gcdump trace; do
   cp -f %{_artifacts}/dotnet-${name}/%{_buildtype}/netcoreapp*/publish/*.dll %{buildroot}%{toolsdir}
 done
-find %{buildroot}%{toolsdir} -type f -exec chmod 644 {} +
 
 %ifarch %{arm}
 for f in $(grep -L "dotnet-" %{buildroot}%{toolsdir}/*.dll); do
@@ -213,11 +212,9 @@ cp -rf packages/xunit.runner.console/*/tools/netcoreapp2.0 %{buildroot}%{tcdir}/
 
 %files tools
 %manifest %{name}.manifest
+%defattr(644,owner,users,-)
 %dir %{toolsdir}
 %{toolsdir}/*
-
-%post tools
-chown -R owner:users /home/owner/share/.dotnet
 
 %ifarch x86_64
 %files test

@@ -3,7 +3,6 @@
     <domain name="_"/>
   </request>
   <assign>
-    <filesystem path="/home/owner/share/.dotnet" label="User::App::Shared" type="transmutable" />
     <filesystem path="/opt/usr/diagnostics-tc" label="User::App::Shared" type="transmutable" />
   </assign>
 </manifest>
