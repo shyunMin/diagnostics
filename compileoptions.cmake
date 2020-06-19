@@ -78,6 +78,12 @@ if(CLR_CMAKE_PLATFORM_UNIX_ARM)
    endif(ARM_SOFTFP)
 endif(CLR_CMAKE_PLATFORM_UNIX_ARM)
 
+if(CLR_CMAKE_PLATFORM_UNIX_ARM64)
+  if("$ENV{__DistroRid}" MATCHES "tizen.*")
+    add_compile_options(-target aarch64-tizen-linux-gnu)
+  endif()
+endif(CLR_CMAKE_PLATFORM_UNIX_ARM64)
+
 if (WIN32)
   # Compile options for targeting windows
 
