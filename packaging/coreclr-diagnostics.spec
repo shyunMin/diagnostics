@@ -12,8 +12,6 @@ URL:        https://github.com/dotnet/diagnostics
 Source0:    %{name}-%{version}.tar.gz
 Source1:    %{name}.manifest
 
-ExcludeArch: aarch64
-
 BuildRequires: clang >= 3.8
 BuildRequires: clang-devel >= 3.8
 BuildRequires: cmake
@@ -41,6 +39,7 @@ BuildRequires: patchelf
 %ifarch aarch64
 BuildRequires: python-accel-aarch64-cross-aarch64
 BuildRequires: clang-accel-aarch64-cross-aarch64
+BuildRequires: patchelf
 %endif
 
 %ifarch %{ix86}
@@ -86,7 +85,7 @@ This package contains unit tests for SOS and tools.
 %setup -q -n %{name}-%{version}
 cp %{SOURCE1} .
 
-%ifarch %{arm}
+%ifarch %{arm} aarch64
 # Detect interpreter name from cross-gcc
 LD_INTERPRETER=$(patchelf --print-interpreter /emul/usr/bin/gcc)
 LD_RPATH=$(patchelf --print-rpath /emul/usr/bin/gcc)
@@ -152,7 +151,7 @@ export CXXFLAGS+="-fstack-protector-strong"
 export NUGET_PACKAGES=%{_builddir}/%{name}-%{version}/packages
 export LD_LIBRARY_PATH=%{_builddir}/%{name}-%{version}/libicu-57.1
 
-./build.sh --configuration %{_buildtype} --architecture %{_barch} /p:NeedsPublishing=true /p:EnableSourceLink=false /p:EnableSourceControlManagerQueries=false
+./build.sh --portablebuild=false --configuration %{_buildtype} --architecture %{_barch} /p:NeedsPublishing=true /p:EnableSourceLink=false /p:EnableSourceControlManagerQueries=false
 
 %install
 %define netcoreappdir   %{_datadir}/dotnet/shared/Microsoft.NETCore.App/%{dotnet_version}
