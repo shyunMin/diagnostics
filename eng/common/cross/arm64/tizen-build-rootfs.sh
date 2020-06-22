@@ -37,5 +37,6 @@ rm -rf $TIZEN_TMP_DIR
 
 # Configure Tizen rootfs
 echo ">>Start configuring Tizen rootfs"
+ln -sfn asm-arm64 ./usr/include/asm
 patch -p1 < $__TIZEN_CROSSDIR/tizen.patch
 echo "<<Finish configuring Tizen rootfs"
