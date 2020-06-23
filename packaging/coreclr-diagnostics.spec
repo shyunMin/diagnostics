@@ -136,6 +136,7 @@ export CLANG_NO_LIBDIR_SUFFIX=1
 
 export CFLAGS=$BASE_FLAGS
 export CXXFLAGS=$BASE_FLAGS
+export ASMFLAGS="${BASE_FLAGS}"
 
 %define _buildtype %{dotnet_buildtype}
 %define _artifacts artifacts/bin
